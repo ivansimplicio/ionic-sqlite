@@ -1,15 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Lista de Contatos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <mat-list *ngFor="let contact of contacts">
+    <mat-list-item><h2>Nome: {{contact.name}}</h2></mat-list-item>
+    <mat-list-item><h4>Email: {{contact.email}}</h4></mat-list-item>
+    <mat-list-item><h4>Telefone: {{contact.phone}}</h4></mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
 </ion-content>

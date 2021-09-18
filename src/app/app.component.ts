@@ -1,4 +1,6 @@
+import { DatabaseService } from './services/database.service';
 import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private platform: Platform, public dbService: DatabaseService){
+
+    this.platform.ready().then(() => {
+      this.dbService.openDatabase();
+    });
+  }
 }
